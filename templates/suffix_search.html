@@ -1,0 +1,21 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+    <div class="page-header">
+        <h1>Suffix Search</h1>
+        <form action="{{ url_for('suffix_search') }}" method="POST">
+            <input type="text" name="suffix" placeholder="Enter a suffix" required>
+            <input type="submit" value="Search">
+        </form>
+        {% if words %}
+        <p>Words with suffix '{{ suffix }}':</p>
+        <ul>
+            {% for word in words %}
+            <li>{{ word }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+
+{% include 'footer.html' %}

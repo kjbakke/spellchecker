@@ -1,0 +1,17 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+    <div class="page-header">
+        <h1>Change File</h1>
+        <form action="{{ url_for('change_file') }}" method="POST">
+            <select name="file">
+                {% for file in files %}
+                <option value="{{ file }}">{{ file }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Change">
+        </form>
+    </div>
+</div>
+
+{% include 'footer.html' %}

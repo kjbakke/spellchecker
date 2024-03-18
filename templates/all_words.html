@@ -1,0 +1,18 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+    <div class="page-header">
+        <h1>All Words</h1>
+        <p>Total words: {{ total_words }}</p>
+        {% for letter, words in words_by_letter.items() %}
+        <h2>{{ letter }}</h2>
+        <ul>
+            {% for word in words %}
+            {{ word }}
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'footer.html' %}

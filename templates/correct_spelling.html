@@ -1,0 +1,21 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+    <div class="page-header">
+        <h1>Check correct spelling</h1>
+        <form action="{{ url_for('correct_spelling') }}" method="POST">
+            <input type="text" name="word" placeholder="Enter a word" required>
+            <input type="submit" value="Check">
+        </form>
+        {% if words %}
+        <p>Spelling suggestions for '{{ word }}':</p>
+        <ul>
+            {% for word in words %}
+            <li>{{ word }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+
+{% include 'footer.html' %}

@@ -1,0 +1,21 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+    <div class="page-header">
+        <h1>Prefix Search</h1>
+        <form action="{{ url_for('prefix_search') }}" method="POST">
+            <input type="text" name="prefix" placeholder="Enter a prefix" required>
+            <input type="submit" value="Search">
+        </form>
+        {% if words %}
+        <p>Words with prefix '{{ prefix }}':</p>
+        <ul>
+            {% for word in words %}
+            <li>{{ word[0] }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+
+{% include 'footer.html' %}

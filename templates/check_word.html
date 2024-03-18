@@ -1,0 +1,16 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+    <div class="page-header">
+        <h1>Check if a word exists</h1>
+        <form action="{{ url_for('check_word') }}" method="POST">
+            <input type="text" name="word" placeholder="Enter a word" required>
+            <input type="submit" value="Check">
+        </form>
+        {% if word %}
+        <p>The word '{{ word }}' {% if exists %}exists{% else %}does not exist{% endif %} in the dictionary.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% include 'footer.html' %}
